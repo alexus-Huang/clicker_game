@@ -17,7 +17,20 @@ rebirth_costs = {
 }
 
 
+def rebirth_window():
+    popup = tk.Toplevel(root)
+    popup.title("Rebirth Description")
+    popup.minsize(500,450)
 
+    title = tk.Label(popup, text="Rebirth Description")
+    title.pack(pady=10)
+
+    #loop through rebirth data to display each cost
+    for level, cost in rebirth_costs.items():
+        rebirth_text = f"Level {level} : {cost} Clicks"
+
+        rebirth_label = tk.Label(popup,text = rebirth_text, font = ("Arial",12))
+        rebirth_label.pack(pady=5)
 
 def rebirth():
     global rate
@@ -44,5 +57,7 @@ clickBtn.pack()
 rebirthBtn = tk.Button(root,text="Rebirth",command = rebirth)
 rebirthBtn.pack()
 
+rebirthDescription = tk.Button(root, text = "Rebirth Description", command=rebirth_window)
+rebirthDescription.pack(pady=20)
 
 root.mainloop()
