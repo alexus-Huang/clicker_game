@@ -65,25 +65,50 @@ def click():
     clicksLabel.config(text=f"Clicks: {clicks}")
 
 #labels
-titleLabel = tk.Label(root,text="Clicker Game")
-titleLabel.pack()
+titleLabel = tk.Label(root,text="Clicker Game",font=("Arial",35,"bold"))
+titleLabel.pack(pady=20)
 
-clicksLabel = tk.Label(root,text=f"Clicks {clicks}")
+clicksLabel = tk.Label(root,text=f"Clicks {clicks}",font=("Arial",18))
 clicksLabel.pack()
 
-rebirth_level_label = tk.Label(root,text=f"Rebirth Level:{rebirth_level}")
+rebirth_level_label = tk.Label(root,text=f"Rebirth Level: {rebirth_level}",font=("Arial",15))
 rebirth_level_label.pack(pady=10)
 
 warningLabel = tk.Label(root,text="",fg="red",font=("Arial",12,"bold"))
 warningLabel.pack(pady=5)
+
 #buttons
-clickBtn = tk.Button(root,text = "Click!", command=click)
-clickBtn.pack()
+clickBtn = tk.Button(
+    root,
+    text="CLICK!",
+    command=click,
+    font=("Verdana", 20, "bold"),
+    bg="#4CAF50",                
+    fg="white",                  
+    activebackground="#45a049",  
+    activeforeground="white",
+    padx=20,                    
+    pady=10,
+    relief="raised",
+    bd=2                      
+)
+clickBtn.pack(pady=20)
 
-rebirthBtn = tk.Button(root,text="Rebirth",command = rebirth)
-rebirthBtn.pack()
+rebirthBtn = tk.Button(
+    root,
+    text="Rebirth",
+    command = rebirth,
+    font=("Arial",20),
+    bd=2
+    )
+rebirthBtn.pack(side="top",anchor="e",padx=20)
 
-rebirthDescription = tk.Button(root, text = "Rebirth Description", command=rebirth_window)
-rebirthDescription.pack(pady=20)
+rebirthDescription = tk.Button(
+    root, 
+    text = "Rebirth Description", 
+    command=rebirth_window,
+    font=("Arial",18),
+    bd=2)
+rebirthDescription.pack(side="top", anchor="e", padx=20, pady=5)
 
 root.mainloop()
